@@ -8,7 +8,23 @@ const dates = [
 ];
 
 // TODO: Buatlah fungsi createDate
-const createDate = null;
+const createDate = (dates, position = 0) => {
+    const epochArray = [];
+
+    for (let i = 0; i < dates.length; i++) {
+        let epochDalamDetik = Math.floor(Date.parse(dates[i]) / 1000);
+        epochArray.push(epochDalamDetik.toString());
+    }
+    
+    const sortArr = epochArray.sort();
+
+    if(position !== 0)
+    {
+       return sortArr[position].toString();
+    } else {
+       return sortArr.join("-");
+    }
+};
 
 // ! JANGAN DIMODIFIKASI
 (() => {
